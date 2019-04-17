@@ -1,29 +1,21 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser')
-var shop = require('./shop/index.js')
+var products = require('./shop/index.js')
 var tours = require('./tours')
 var media = require('./media')
 const MongoClient = require("mongodb").MongoClient;
 const mongoClient = new MongoClient("mongodb://localhost:27017/", { useNewUrlParser: true });
-var m;
 
 mongoClient.connect(function (err, client) {
     const db = client.db("kurscit");
-    let col = db.collection("tshirts");
-    m = client;
+    let col = db.collection("products");
     if (err) return 0;
-    app.locals.tshirts = col;
-    col = db.collection("sweatshirts");
-    app.locals.sweatshirts = col;
-    col = db.collection("backpack");
-    app.locals.backpacks = col;
-    col = db.collection("cups");
-    app.locals.cups = col;
-    col = db.collection("tour");
-    app.locals.tour = col;
+    app.locals.products = col;
     col = db.collection("media");
     app.locals.media = col;
+    col = db.collection("tour");
+    app.locals.tour = col;
     process.on("SIGINT", () => {
         client.close();
         process.exit();
@@ -42,7 +34,7 @@ app.use(function (req, res, next) {
 app.use(express.static(__dirname + '/images')) // в __dirname хранится абсолютный путь к файлу, тк мы находимся в корне проекта, а не в папке сервера 
 // app.use('/uploads', express.static('uploads'))
 
-app.use("/shop", shop);
+app.use("/products", products);
 app.use("/tours", tours);
 app.use("/media", media);
 

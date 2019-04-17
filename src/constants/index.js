@@ -1,0 +1,7 @@
+export const POST = 'POST'
+export const GET = 'GET'
+export const GET_MEDIA = 'GET_MEDIA'
+export const GET_ONE_MEDIA = 'GET_ONE_MEDIA'
+export const GET_PRODUCTS = 'GET_PRODUCTS'
+export const GET_PRODUCT = 'GET_PRODUCT'
+export const GET_TOURS = 'GET_TOURS'

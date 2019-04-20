@@ -9,7 +9,7 @@ const api = (method, url, body) => {
         body: JSON.stringify(body)
     }
 
-    return fetch(`http://http:/localhost:8080/${url}`, options)
+    return fetch(`http://localhost:8080/${url}`, options)
 }
 
 export default api

@@ -31,7 +31,7 @@ router.get("/backpacks", (req, res) => {
 
 router.get("/", (req, res) => {
     const products = req.app.locals.products;
-    products.find({}, { projection: { tshirts: 0, cups: 0, backpacks: 0, sweatshirts: 0 } }).toArray((err, r) => {
+    products.find({}, { projection: { list: 0 } }).toArray((err, r) => {
         res.send(r)
     })
 })

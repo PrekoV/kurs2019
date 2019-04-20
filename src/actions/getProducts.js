@@ -17,7 +17,7 @@ const getOneProductAction = (payload) => {
 
 export const getProds = () => {
     return function (dispatch) {
-        API(GET, "/").then(res => {
+        API(GET, "products").then(res => {
             return res.json()
         }).then(json => {
             return dispatch(getProductsAction(json))
@@ -27,7 +27,7 @@ export const getProds = () => {
 
 export const getProdOne = (url) => {
     return function (dispatch) {
-        API(GET, url).then(res => {
+        API(GET, "products/" + url).then(res => {
             return res.json()
         }).then(json => {
             return dispatch(getOneProductAction(json))

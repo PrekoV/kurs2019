@@ -1,30 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/tshirts", (req, res) => {
+router.get("/one", (req, res) => {
     const products = req.app.locals.products;
-    products.findOne({ name: "T-Shirts" }, (err, r) => {
-        res.send(r)
-    })
-})
-
-router.get("/sweatshirts", (req, res) => {
-    const products = req.app.locals.products;
-    products.findOne({ name: "Sweatshirt" }, (err, r) => {
-        res.send(r)
-    })
-})
-
-router.get("/cups", (req, res) => {
-    const products = req.app.locals.products;
-    products.findOne({ name: "Cups" }, (err, r) => {
-        res.send(r)
-    })
-})
-
-router.get("/backpacks", (req, res) => {
-    const products = req.app.locals.products;
-    products.findOne({ name: "Backpack" }, (err, r) => {
+    let name = req.query.name
+    console.log(name)
+    products.findOne({ name }, (err, r) => {
+        if (err) return res.status(500).send({ message: 'Failed to get' + name })
+        if (!r) return res.status(404).send({ message: "Not found" })
         res.send(r)
     })
 })
@@ -32,6 +15,8 @@ router.get("/backpacks", (req, res) => {
 router.get("/", (req, res) => {
     const products = req.app.locals.products;
     products.find({}, { projection: { list: 0 } }).toArray((err, r) => {
+        if (err) return res.status(500).send({ message: 'Failed to get products' })
+        if (!r) return res.status(404).send({ message: "Not found" })
         res.send(r)
     })
 })

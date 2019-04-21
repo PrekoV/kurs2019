@@ -33,19 +33,19 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers", "*");
     res.header("Access-Control-Allow-Credentials", true);
     res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS, PATCH");
     next();
 });
 app.use(express.static(__dirname + '/images')) // в __dirname хранится абсолютный путь к файлу, тк мы находимся в корне проекта, а не в папке сервера 
-app.use('/uploads', express.static('uploads'))
+app.use('/uploads', express.static(__dirname + '/uploads'))
 
 app.use("/products", products);
 app.use("/tours", tours);
 app.use("/media", media);
 app.use("/admin", admin)
-app.use("/adminactoins", adminactions)
+app.use("/adminactions", adminactions)
 app.use("/news", news)
 
 app.listen(8080, () => {

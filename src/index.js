@@ -4,20 +4,21 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import { store, history } from './store'
-import { Router, Route, Switch } from 'react-router-dom'
+import { store } from './store'
+
+
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router history={history}>
+    <Provider store={store}><App />
+        {/* <Router history={history}>
             <Switch>
-                {/* add more routers */}
+                add more routers 
                 <Route path="/" component={App}></Route>
                 <Route exact path="/" component={App}></Route>
             </Switch>
-        </Router>
+        </Router> */}
     </Provider>
-    // <App />
+    // 
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

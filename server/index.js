@@ -5,7 +5,6 @@ var products = require('./shop/index.js')
 var tours = require('./tours')
 var media = require('./media')
 var admin = require('./rest/admin')
-var news = require('./news')
 var adminactions = require('./rest/adminActions')
 const MongoClient = require("mongodb").MongoClient;
 const mongoClient = new MongoClient("mongodb://localhost:27017/", { useNewUrlParser: true });
@@ -21,8 +20,6 @@ mongoClient.connect(function (err, client) {
     app.locals.tour = col;
     col = db.collection("admin");
     app.locals.admin = col;
-    col = db.collection("messages");
-    app.locals.messages = col;
     process.on("SIGINT", () => {
         client.close();
         process.exit();
@@ -39,14 +36,13 @@ app.use(function (req, res, next) {
     next();
 });
 app.use(express.static(__dirname + '/images')) // в __dirname хранится абсолютный путь к файлу, тк мы находимся в корне проекта, а не в папке сервера 
-app.use('/uploads', express.static(__dirname + '/uploads'))
+app.use(express.static(__dirname + '/uploads'))
 
 app.use("/products", products);
 app.use("/tours", tours);
 app.use("/media", media);
 app.use("/admin", admin)
 app.use("/adminactions", adminactions)
-app.use("/news", news)
 
 app.listen(8080, () => {
     console.log("server is start magic on ", 8080)

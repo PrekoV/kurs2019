@@ -11,9 +11,6 @@ router.get("/:id", (req, res) => {
 router.get("/", (req, res) => {
     let media = req.app.locals.media;
     media.find({}).toArray((err, r) => {
-        for (let i = 0; i < r.length; i++) {
-            r[i].pics = r[i].pics[0]
-        }
         res.send(r)
     })
 })

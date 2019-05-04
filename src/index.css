@@ -1,6 +1,5 @@
 .Header {
   background-color: #000;
-  border-bottom: 2px solid #aa1f1f;
 }
 .Header .header-wrapper {
   width: 85%;
@@ -30,18 +29,23 @@
   font-family: "Roboto";
   font-size: 18px;
   cursor: pointer;
+  text-transform: uppercase;
+}
+.Header .header-wrapper nav ul .item a {
+  transition: 0.3s;
 }
 .Header .header-wrapper nav ul .line {
   width: 1px;
   background-color: #aa1f1f;
   height: 60px;
 }
-.News {
-  background-color: #d3d3d3;
-}
 .News .news-wrapper {
-  width: 85%;
+  display: flex;
+  justify-content: space-between;
   margin: 0 auto;
+}
+.News .news-wrapper .main {
+  width: 70%;
 }
 .News .news-wrapper .main .loading {
   font-family: "Roboto";
@@ -50,7 +54,7 @@
 }
 .News .news-wrapper .main .messages li {
   list-style: none;
-  max-width: 800px;
+  max-width: 900px;
   padding: 20px;
 }
 .News .news-wrapper .main .messages li .user img {
@@ -63,13 +67,13 @@
   overflow: hidden;
 }
 .News .news-wrapper .main .messages li .text {
-  background-color: #ccb5b5;
+  background-color: #eae5df;
   border: 1px solid #aa1f1f;
   margin-top: -40px;
   margin-left: 70px;
 }
 .News .news-wrapper .main .messages li .text p {
-  color: #000;
+  color: #fff;
   font-size: 16px;
   line-height: 22px;
   padding: 30px 40px;
@@ -77,8 +81,51 @@
   font-family: "Roboto";
   font-size: 16px;
 }
+.News .news-wrapper .sidebar {
+  background: rgba(0,0,0,0.667);
+  width: 25%;
+}
+.News .news-wrapper .sidebar .title {
+  color: #fff;
+  font-size: 20px;
+  font-family: "Roboto";
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px 0 0 0;
+}
+.News .news-wrapper .sidebar .albums-wrapper {
+  padding: 20px;
+  text-align: center;
+}
+.News .news-wrapper .sidebar .albums-wrapper li {
+  padding: 15px 0;
+  list-style: none;
+  border-top: 2px solid #aa1f1f;
+}
+.News .news-wrapper .sidebar .albums-wrapper li img {
+  width: 200px;
+  height: 200px;
+}
+.News .news-wrapper .sidebar .albums-wrapper li .name {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: "Roboto";
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+a:hover {
+  color: #aa1f1f;
+  transition: 0.3s;
 }

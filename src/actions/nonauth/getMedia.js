@@ -2,7 +2,7 @@ import API from '../../services/api'
 import { GET_MEDIA, GET_ONE_MEDIA } from '../../constants'
 
 const getMediaAction = (payload) => {
-    console.log(payload)
+    // console.log(payload)
     return {
         type: GET_MEDIA,
         payload
@@ -19,7 +19,7 @@ const getOneMediaAction = (payload) => {
 export const getMedia = () => {
     return (dispatch) => {
         API.get('media').then(res => {
-            console.log(res.data)
+            // console.log(res.data)
             return dispatch(getMediaAction(res.data))
         })
     }

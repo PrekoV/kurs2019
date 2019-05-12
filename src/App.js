@@ -9,6 +9,9 @@ import News from './containers/news/News';
 import Tour from './containers/tour/Tour.js'
 import Media from './containers/media/Media';
 import Shop from './containers/shop/Shop';
+import Footer from './components/footer/footer';
+import Album from './containers/media/media-album/album';
+import notFound from './notFound';
 
 
 const mapStateToProps = state => {
@@ -21,17 +24,17 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		getMedia: () => dispatch(getMedia()),
-		getProdOne: (name) => dispatch(getProdOne(name))
+		//	getProdOne: (name) => dispatch(getProdOne(name))
 	}
 }
 
 class App extends Component {
-	componentDidMount = () => {
-		this.props.getProdOne("cups");
-		this.props.getMedia()
-	}
+	// componentDidMount = () => {
+	// 	this.props.getProdOne("cups");
+	// 	this.props.getMedia()
+	// }
 	render() {
-		console.log(this.props)
+		//	console.log(this.props)
 		return (
 			<div className="App">
 				<div className="container-wrapper">
@@ -42,10 +45,14 @@ class App extends Component {
 								<Switch>
 									<Route exact path="/" component={News} />
 									<Route path="/tours" component={Tour} />
-									<Route path="/media" component={Media} />
+									<Route path="/media/:album/*" component={notFound}></Route>
+									<Route path="/media/:album" component={Album}></Route>
+									<Route path="/media" component={Media}></Route>
 									<Route path="/shop" component={Shop} />
+									<Route component={notFound}></Route>
 								</Switch>
 							</div>
+							<Footer />
 						</div>
 					</Router>
 				</div>

@@ -1,0 +1,157 @@
+.BuyTicketsModal
+    display none
+.openmodal
+    display block
+    height 100vh
+    width: 100vw
+    background-color #000000aa
+    position absolute
+    top 0
+    left 0
+    z-index: 1
+    .wrappermodal
+        background-color #F3E7E4
+        border-radius: 5px
+        width: 60%
+        min-width 310px
+        height 300px
+        min-height: 200px
+        margin: 0 auto
+        padding: 10px
+        transform: translate(0, 70%)
+        .close
+            color: #D66347
+            font-size: 30px
+            text-align: end
+            margin-top: -45px
+            width: 100%
+            padding: 0 5px 10px 5px
+            cursor pointer
+            transition: .3s
+        .close:hover
+            color: #A72707
+            transition: .3s
+        .price
+            margin-top: 20px
+            display flex
+            width: 100%
+            justify-content: space-between
+            // align-items: center
+            .dots
+                border-bottom: dotted 3px #EFE7E499
+                width: 90%
+            span
+                font-size: 30px
+                text-transform uppercase
+                @media screen and (max-width: 1000px)
+                    font-size: 20px
+        .buy
+            border: none 
+            outline: none 
+            cursor pointer
+            background-color #F3E7E4
+            padding: 3px
+            width: 150px
+            border-radius: 5px
+            height 40px
+            margin: 10px 0 0 calc(100% - 150px)
+            span
+                border 2px dashed #D66347
+                padding: 5px 25px
+                color #514346
+                text-transform uppercase
+                width: 100%
+        .info
+            border 2px dashed #D66347
+            height 100%
+            padding: 10px
+            display: flex
+            flex-direction: column
+            justify-content: center
+            position relative
+            .bg
+                text-transform uppercase
+                color #D6634759
+                font-size: 35px
+                text-align: center
+                padding: 5px
+                font-family: "Poiret One"
+                border: 3px groove #DF8E6E33
+                max-width: 300px
+                margin: 0 auto 
+                position absolute
+                top 15px
+                left 15px
+            .fan-zone
+                text-transform uppercase
+                color #D6634759
+                font-size: 35px
+                text-align: center
+                padding: 5px
+                font-family: "Poiret One"
+                border: 3px groove #DF8E6E33
+                max-width: 300px
+                margin: 0 auto 
+                position absolute
+                top 205px
+                right 15px
+            .name
+                font-size: 40px
+                color #514346
+                text-align: center
+                padding: 5px
+                @media screen and (max-width: 1000px)
+                    font-size: 24px
+                    text-transform uppercase
+            .band
+                font-size: 14px
+                font-weight: bold
+                letter-spacing: 20px
+                color #514346
+                text-transform uppercase
+                text-align: center
+                @media screen and (max-width: 1000px)
+                    font-size: 10px
+                    letter-spacing: 10px
+            .short-line
+                display none
+                @media screen and (max-width: 1200px)
+                    display: block
+                    min-width: 200px
+            .where-wrapper
+                display: flex
+                justify-content: space-around
+                align-items: center
+                padding: 10px 10px
+                @media screen and (max-width: 1200px)
+                    padding: 0
+                .short-line
+                    width: 20%
+                    display: block
+                    min-width: 20px
+                    @media screen and (max-width: 1200px)
+                        display none
+                .where
+                    text-align: center
+                    span
+                        font-size: 24px
+                        color #514346
+                        text-align: center
+                        text-transform uppercase
+                        @media screen and (max-width: 1000px)
+                            font-size: 16px
+            .details
+                position: absolute
+                top 240px
+                display: flex
+                justify-content space-between
+                align-items: center
+                .when
+                    color #514346
+                    text-transform uppercase
+                    font-family: "Poiret One"
+                    font-size: 20px
+                    sup
+                        color #514346
+
+

@@ -47,7 +47,7 @@ class Shop extends Component {
             <div className="Shop">
                 <div className="shop-wrapper">
                     {
-                        products.prodList ?
+                        products.prodList[0] ?
                             <div className="products">
                                 <ul className="big">
                                     {

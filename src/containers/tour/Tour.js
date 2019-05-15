@@ -73,7 +73,7 @@ class Tour extends Component {
                                 tour.cities &&
                                 tour.cities.map(city => {
                                     return <li
-                                        className={`${city.date[0] < this.state.today[0] && 'was'}`}
+                                        className={`${city.date[0] <= this.state.today[0] && 'was'}`}
                                         onClick={() => this.buyTicket(city)}>
                                         {city.city}
                                     </li>

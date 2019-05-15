@@ -27,7 +27,7 @@ class Media extends Component {
             <div className="Media">
                 <div className="bg-wrapper">
                     <div className="content-wrapper">
-                        {medias[0] &&
+                        {medias[0] ?
                             medias.map(alboum => {
                                 return (
                                     <div className="alboum">
@@ -57,7 +57,8 @@ class Media extends Component {
                                         <div className="line"></div>
                                     </div>
                                 )
-                            })
+                            }) :
+                            <div>No connection</div>
                         }
                     </div>
                 </div>

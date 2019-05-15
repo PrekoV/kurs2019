@@ -5,6 +5,7 @@ var products = require('./shop/index.js')
 var tours = require('./tours')
 var media = require('./media')
 var admin = require('./rest/admin')
+var purchases = require('./buyProduct')
 var adminactions = require('./rest/adminActions')
 const MongoClient = require("mongodb").MongoClient;
 const mongoClient = new MongoClient("mongodb://localhost:27017/", { useNewUrlParser: true });
@@ -20,6 +21,8 @@ mongoClient.connect(function (err, client) {
     app.locals.tour = col;
     col = db.collection("admins");
     app.locals.admin = col;
+    col = db.collection("purchases");
+    app.locals.purchases = col;
     process.on("SIGINT", () => {
         client.close();
         process.exit();
@@ -43,6 +46,7 @@ app.use("/tours", tours);
 app.use("/media", media);
 app.use("/admin", admin)
 app.use("/adminactions", adminactions)
+app.use("/purchases", purchases)
 
 app.listen(8080, () => {
     console.log("server is start magic on ", 8080)

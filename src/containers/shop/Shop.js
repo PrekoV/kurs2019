@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getProds, getProdOne } from '../../actions/nonauth/getProducts'
 import { connect } from 'react-redux'
 import Content from '../../components/shop-content/content';
+import BuyProduct from './buy/buy';
 
 
 const mapStateToProps = state => {
@@ -21,7 +22,9 @@ class Shop extends Component {
 
     state = {
         selected: "t-shirts",
-        isOpen: false
+        isOpen: false,
+        buy: false,
+        product:{}
     }
 
     componentDidMount() {
@@ -38,6 +41,14 @@ class Shop extends Component {
         } else {
             this.setState({ isOpen: false })
         }
+    }
+
+    buy = (product) => {
+        this.setState({buy: true, product})
+    }
+
+    close = () => {
+        this.setState({buy: false})
     }
 
     render() {
@@ -84,12 +95,13 @@ class Shop extends Component {
                                 </ul>
                                 <div className="line"></div>
                                 <div className="list">
-                                    <Content product={products.product} />
+                                    <Content  buy={this.buy} product={products.product} />
                                 </div>
                             </div>
                             : <div className="no-connection">No connection</div>
                     }
                     <div className="line"></div>
+                    <BuyProduct purchase={this.state.product} close={this.close} open = {this.state.buy}/>
                 </div>
             </div>
         );

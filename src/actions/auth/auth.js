@@ -28,24 +28,26 @@ const logoutAction = () => {
     }
 }
 
-export const login = (login, password) => {
+export const login = (l, password) => {
     return dispatch => {
-        API.post("admin/login", { login, password }).then(res => {
-            switch (res.status) {
-                case 200: return dispatch(authSuccessAction(res.data))
-                case 500: () => {
-                    localStorage.clear()
-                    return dispatch(authFailedAction(res.data.message))
-                }
-                case 404: () => {
-                    localStorage.clear()
-                    return dispatch(authFailedAction(res.data.message))
-                }
-                default: return dispatch(authFailedAction("There is some problems with server..."))
-            }
-        }), rej => {
-            console.log(rej)
-        }
+        console.log(login, password)
+        return API.post("admin/login", { login: l, password }).then(res => {
+              dispatch(authSuccessAction(res.data)) 
+                // break
+                // case 500: () => {
+                //     localStorage.clear()
+                //      dispatch(authFailedAction(res.data.message))
+                // }
+                // case 404: () => {
+                //     localStorage.clear()
+                //      dispatch(authFailedAction(res.data.message))
+                // }
+                // default:  dispatch(authFailedAction("There is some problems with server..."))
+            
+        }).catch ( e => {
+            localStorage.clear()
+            dispatch(authFailedAction(e.message))
+        })
     }
 }
 
@@ -59,18 +61,20 @@ export const logout = () => {
 export const registered = () => {
     return dispatch => {
         API.get('admin/' + localStorage.getItem("id")).then(res => {
-            switch (res.status) {
-                case 200: return dispatch(authSuccessAction(res.data))
-                case 500: () => {
-                    localStorage.clear()
-                    return dispatch(authFailedAction(res.data.message))
-                }
-                case 404: () => {
-                    localStorage.clear()
-                    return dispatch(authFailedAction(res.data.message))
-                }
-                default: return dispatch(authFailedAction("There is some problems with server..."))
-            }
+            // switch (res.status) {
+              dispatch(authSuccessAction(res.data))
+                // case 500: () => {
+                //     localStorage.clear()
+                //     return dispatch(authFailedAction(res.data.message))
+                // }
+                // case 404: () => {
+                //     localStorage.clear()
+                //     return dispatch(authFailedAction(res.data.message))
+                // }
+                // default: return dispatch(authFailedAction("There is some problems with server..."))
+            //}
+        }).catch(e => {
+            dispatch(authFailedAction(e.message))
         })
     }
 }

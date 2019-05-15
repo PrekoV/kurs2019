@@ -110,6 +110,8 @@
 .Footer {
   background-color: #000;
   height: 80px;
+  position: absolute;
+  width: 100%;
 }
 .Footer .footer-wrapper {
   width: 90%;
@@ -1128,6 +1130,65 @@
 }
 .modalPic .pic .close:hover {
   color: #a72707;
+  transition: 0.3s;
+}
+.AuthForm {
+  position: relative;
+  background-color: #efe7e4;
+}
+.AuthForm .auth-wrapper {
+  position: absolute;
+  box-shadow: 0 0 10px #000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 600px;
+  background-color: #514346;
+}
+.AuthForm .auth-wrapper .form-controll {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.AuthForm .auth-wrapper .form-controll .icon img {
+  width: 50px;
+  height: 50px;
+}
+.AuthForm .auth-wrapper .form-controll .title {
+  font-size: 20px;
+  padding: 0;
+  text-align: center;
+  color: #efe7e4;
+}
+.AuthForm .auth-wrapper .form-controll .input-wrapper {
+  border: 1px solid #efe7e4;
+  width: 100%;
+  margin: 10px;
+}
+.AuthForm .auth-wrapper .form-controll .input-wrapper input {
+  border: none;
+  outline: none;
+  background-color: #514346;
+  padding: 10px;
+  width: 100%;
+}
+.AuthForm .auth-wrapper .form-controll button {
+  border: 1px solid #efe7e4;
+  outline: none;
+  background-color: #efe7e4;
+  color: #514346;
+  padding: 5px 10px;
+  width: 100px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.AuthForm .auth-wrapper .form-controll button:hover {
+  background-color: #514346;
+  color: #efe7e4;
   transition: 0.3s;
 }
 * {

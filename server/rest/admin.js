@@ -21,6 +21,7 @@ router.post('/login', function (req, res) {
             //     res.send(valid)
             // }
         )
+        console.log(passwordIsValid)
         if (!passwordIsValid) return res.status(401).send({ message: "Password not valid" });
         var token = jwt.sign({ id: r._id }, config.secret, { expiresIn: 86400 });
         res.status(200).send({ auth: true, token: token, login: r.login, img: r.img, id: r._id })

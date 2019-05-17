@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const config = require('../config')
+var mongo = require('mongodb');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -49,24 +50,35 @@ router.post('/create/media/download', uploads.single('file'), function (req, res
     })
 })
 
-router.post('/messages', (req, res) => {
-    let message = req.body.message
-    let admin = req.body.admin
-    let date = req.body.date
-    let messages = req.app.locals.messages;
-    let admins = req.app.locals.admin;
+router.put("/purchases", (req,res) => {
     let token = req.headers['authorization']
+    const purchases = req.app.locals.purchases;
+    var o_id = new mongo.ObjectID(req.body._id);
+
+    console.log(req.body._id)
     if (!token) return res.status(401).send({ message: "not authorizated" })
     jwt.verify(token, config.secret, function (err, decoded) {
         if (err) return res.status(500).send({ message: 'Failed to authenticate token' })
-        admins.findOne({ login: admin }, (err, r) => {
-            messages.insertOne({ admin, message, date, img: r.img }, (err, r) => {
-                if (err) return res.status(500).send({ message: "Server Error" })
-            })
-            messages.find({}).toArray((err, re) => {
-                if (err) return res.status(500).send({ message: 'Failed to connect' })
-                res.status(200).send(re)
-            })
+        purchases.updateOne({_id: o_id}, {$set: {name: req.body.name, tel:req.body.tel, address:req.body.address, size:req.body.size,}}, (err, r) => {
+            if (err) return res.status(500).send({ message: 'Failed to connect' })
+            // console.log(r)
+            res.send({message: "OK"})
+        })
+    })
+})
+
+router.delete("/purchases", (req,res) => {
+    let token = req.headers['authorization']
+    const purchases = req.app.locals.purchases;
+    var o_id = new mongo.ObjectID(req.body._id);
+    console.log(req.body)
+    if (!token) return res.status(401).send({ message: "not authorizated" })
+    jwt.verify(token, config.secret, function (err, decoded) {
+        if (err) return res.status(500).send({ message: 'Failed to authenticate token' })
+        purchases.deleteOne({_id: o_id}, (err, r) => {
+            if (err) return res.status(500).send({ message: 'Failed to connect' })
+            console.log(r)
+            res.send({message: "OK"})
         })
     })
 })

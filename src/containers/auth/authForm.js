@@ -30,7 +30,10 @@ class AuthForm extends Component {
         console.log(this.state)
         this.props.login(this.state.login, this.state.password).then(good => {
             console.log(good)
-            this.props.history.push("/")
+            if(good)
+            this.props.history.push("/adminpanel/purchases")
+        }).catch( e => {
+            console.log(e)
         })
     }
     render() {

@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import Header from "./components/header/header";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect
+} from "react-router-dom";
 import { history } from "./store";
 import { connect } from "react-redux";
 import News from "./containers/news/News";
@@ -11,8 +16,9 @@ import Footer from "./components/footer/footer";
 import Album from "./containers/media/media-album/album";
 import notFound from "./notFound";
 import AuthForm from "./containers/auth/authForm";
-import {registered} from "./actions/auth/auth"
-import { withRouter } from 'react-router'
+import { registered } from "./actions/auth/auth";
+import { withRouter } from "react-router";
+import Purchases from "./containers/auth/purchases";
 
 const mapStateToProps = state => {
     return {
@@ -22,29 +28,45 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-       // getMedia: () => dispatch(getMedia())
+        // getMedia: () => dispatch(getMedia())
         //	getProdOne: (name) => dispatch(getProdOne(name))
         registered: () => dispatch(registered())
     };
 };
 
-const PrivateRoute = ({ component: Component, isAuth, ...rest }) => (
-	<Route {...rest} render={() => (isAuth? <Component /> : <Redirect to='/' />)} />
-)
+const PrivateRoute = ({ component: Component, redirectto: RetirectTo, isAuth, ...rest }) => (
+    <Route
+        {...rest}
+        render={() =>
+            isAuth ? <Component /> : <Redirect to={RetirectTo} />
+        }
+    />
+);
 
 class App extends Component {
     componentDidMount = () => {
-        localStorage.getItem("id") && localStorage.getItem("token") && this.props.registered()
-    }
+        this.props.registered();
+        // this.props.history.push("/adminpanel/purchases")
+    };
     render() {
-        console.log(this.props)
+        console.log(this.props.isAuth);
         return (
             <div className="App">
                 <div className="container-wrapper">
                     <Router history={history}>
+                    
                         <Switch>
-                        <Route path="/adminpanel/login" component={AuthForm} />
-                        {/* <PrivateRoute path="/adminpanel/purchases" component={}/> */}
+                            <Route
+                                path="/adminpanel/login"
+                                component={AuthForm}
+                            />
+                            <PrivateRoute
+                                isAuth={localStorage.getItem("token")}
+                                path="/adminpanel/purchases"
+                                component={Purchases}
+                                redirectto= "/adminpanel/login"
+                            />
+
                             <Router history={history}>
                                 <div>
                                     <Header />
@@ -90,7 +112,7 @@ class App extends Component {
     }
 }
 
-export default connect(
+export default (connect(
     mapStateToProps,
     mapDispatchToProps
-)(App);
+)(App));

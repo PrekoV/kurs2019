@@ -33,7 +33,7 @@ export const login = (l, password) => {
         console.log(login, password)
         return API.post("admin/login", { login: l, password }).then(res => {
               dispatch(authSuccessAction(res.data)) 
-              return 
+              return res
                 // break
                 // case 500: () => {
                 //     localStorage.clear()

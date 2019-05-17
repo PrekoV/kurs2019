@@ -1,0 +1,99 @@
+.Purchases
+    background-color #E7DFDD
+    min-height: 100vh
+    .purchases-wrapper
+        width: 60%
+        margin: 0 auto
+        padding: 100px 0 20px
+        min-width: 300px
+        .purchase
+            width: 100%
+            display: flex
+            justify-content: space-between
+            padding: 10px
+            border: 2px dashed  #514346
+            margin: 20px 0
+            background-color #F3EEED
+            .info
+                display: flex
+                justify-content: space-between
+                width: 70%
+                @media screen and (max-width: 600px)
+                    width: 100%
+                .img-wrapper
+                    margin: 10px
+                    img 
+                        width: 240px
+                        height 240px
+                        @media screen and (max-width: 1800px)
+                            width: 200px
+                            height 200px
+                        @media screen and (max-width: 600px)
+                            width: 100px
+                            height 100px
+                .details
+                    margin: 10px
+                    width: 50%
+                    display: flex
+                    justify-content: space-around
+                    flex-direction: column
+                    p
+                        display: flex
+                        justify-content: space-between
+                        align-items: center
+                        flex-direction: row
+                        color: #514346
+                        @media screen and (max-width: 1800px)
+                            font-size: 10px
+                        span 
+                            color: #514346
+                            font-weight bold
+                            @media screen and (max-width: 1800px)
+                                font-size: 10px
+                        .input-wrapper
+                            border 1px solid #514346
+                            width: 70%
+                            margin: 10px
+                            input 
+                                border none 
+                                outline: none 
+                                background-color #EFE7E4
+                                padding: 10px
+                                width: 100%
+                                color #514346
+                                @media screen and (max-width: 600px)
+                                    padding: 5px
+                                    font-size: 7px
+                        @media screen and (max-width: 1800px)
+                            // flex-direction: column
+                            align-items: flex-start
+                            justify-content flex-start
+            .wrapper-methods
+                @media screen and (max-width: 1800px)
+                    flex-direction: row
+                    align-items: space-around
+                .methods
+                    display: flex
+                    justify-content: space-around
+                    flex-direction: column
+                    margin: 10px
+                    height 100%
+                    @media screen and (max-width: 600px)
+                        flex-direction: row 
+                    button 
+                        border: 1px solid #514346
+                        outline: none
+                        background-color #514346
+                        color #EFE7E4
+                        padding: 5px 10px
+                        width: 100px
+                        cursor pointer
+                        transition: .3s
+                    button:hover
+                        background-color #EFE7E4
+                        color #514346
+                        transition: .3s
+            @media screen and (max-width: 600px)
+                flex-direction: column  
+            
+

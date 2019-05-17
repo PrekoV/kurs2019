@@ -2,13 +2,21 @@ import React, { Component } from "react";
 
 export default class Content extends Component {
     state = {
-        size: ""
+        size: "S",
+        name: ""
     };
-    submit = (e, name, price) => {
+    submit = (e, name, price, img, size) => {
         e.preventDefault();
         // initEvent('on')
-        console.log();
-        this.props.buy({product: name, price});
+        console.log(e);
+        console.log({ product: name, price });
+        let purchase = {
+            product: name,
+            price,
+            size: size ? size : this.state.size,
+            img
+        };
+        this.props.buy(purchase);
     };
     render() {
         console.log(this.state);
@@ -20,9 +28,23 @@ export default class Content extends Component {
                         product.list.map(prod => {
                             return (
                                 <form
-                                    onSubmit={e =>
-                                        this.submit(e, prod.name, prod.price)
-                                    }
+                                    onSubmit={e => {
+                                        if (this.state.name !== prod.name) {
+                                            this.submit(
+                                                e,
+                                                prod.name,
+                                                prod.price,
+                                                prod.img,
+                                                "S"
+                                            );
+                                        } else
+                                            this.submit(
+                                                e,
+                                                prod.name,
+                                                prod.price,
+                                                prod.img
+                                            );
+                                    }}
                                 >
                                     {/* <form onSubmit={this.submit} > */}
                                     <div className="one">
@@ -47,7 +69,8 @@ export default class Content extends Component {
                                                             this.setState({
                                                                 size:
                                                                     e.target
-                                                                        .value
+                                                                        .value,
+                                                                name: prod.name
                                                             })
                                                         }
                                                         name={prod.name}

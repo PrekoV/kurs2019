@@ -5,18 +5,20 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import { store } from './store'
-
-
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch
+} from "react-router-dom";
+import { history } from "./store";
 
 ReactDOM.render(
     <Provider store={store}><App />
-        {/* <Router history={history}>
+        <Router history={history}>
             <Switch>
-                add more routers 
-                <Route path="/" component={App}></Route>
                 <Route exact path="/" component={App}></Route>
             </Switch>
-        </Router> */}
+        </Router>
     </Provider>
     // 
     , document.getElementById('root'));

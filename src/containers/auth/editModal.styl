@@ -1,0 +1,70 @@
+.EditModal
+    display none
+.openmodal
+    display block
+    min-height 100vh
+    width: 100%
+    background-color #000000aa
+    position absolute
+    top 0
+    left 0
+    z-index: 1
+    position: fixed
+    .wrappermodal
+        background-color #F3E7E4
+        border-radius: 5px
+        width: 60%
+        min-width 310px
+        height 300px
+        min-height: 200px
+        margin: 0 auto
+        padding: 10px
+        transform: translate(0, 70%)
+        .close
+            color: #D66347
+            font-size: 30px
+            text-align: end
+            margin-top: -45px
+            width: 100%
+            padding: 0 5px 10px 5px
+            cursor pointer
+            transition: .3s
+        .close:hover
+            color: #A72707
+            transition: .3s
+        form
+            display: flex
+            flex-direction: column
+            height 100%
+            justify-content: space-around
+            .input-wrapper
+                margin: 0
+                border 1px solid #514346
+                color #514346
+                input 
+                    background-color #EFE7E4
+                    color #514346
+            .desc
+                display: flex
+                flex-direction: row
+                align-items: center
+                justify-content: space-around
+                .short-line
+                    width: 20%
+                p
+                    color #514346
+                    text-align: center
+            .file_label_wrapper
+                #file_label
+                    padding: 10px
+                    background-color #514346
+                    text-align: center
+                    cursor pointer
+                    border: 1px solid #514346
+                    transition: .3s
+                #file_label:hover
+                    background-color #EFE7E4
+                    color: #514346
+                    transition: .3s
+            
+

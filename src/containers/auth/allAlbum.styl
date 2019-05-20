@@ -1,0 +1,94 @@
+.AllAlbum
+    background-image url("./style/wallpaper.jpg")
+    background-repeat repeat
+    background-attachment fixed
+    min-height: 100vh
+    .bg-wrapper
+        height 100%
+        background-color #000000cc
+        min-height: 100vh
+        .wrapper
+            width: 90%
+            margin: 0 auto
+            padding: 100px 0 0 0
+            position relative
+            .name-wrapper
+                display: flex
+                justify-content: space-between
+                align-items: center
+                padding: 10px 10px
+                .name 
+                    font-size: 35px
+                    text-transform uppercase
+                    color #E7DFDD
+                    text-align center
+                    @media screen and (max-width: 500px)
+                        font-size: 20px
+                .short-line
+                    margin: 0
+                    width: 20%
+                    display: block
+                    min-width: 20px
+            .album
+                display: flex
+                justify-content: space-between
+                align-items: center
+                flex-wrap: wrap
+                width 100%
+                height 100%
+                .pic
+                    margin: 20px auto
+                    height 230px
+                    transition: .3s
+                    width: 30%
+                    border 2px solid #E7DFDD
+                    overflow hidden
+                    min-width 280px
+                    box-shadow 0 0 20px #000
+                    cursor pointer
+                    position relative
+                    img 
+                        width: 150%
+                        transition: .3s
+                        @media screen and (max-width: 800px)
+                            width: 180%
+                    .delete
+                        position: absolute
+                        background-color #E7DFDDaa
+                        top 0
+                        right 0
+                        font-size: 30px
+                        color #D66347
+                        padding: 5px 10px;
+                    .delete:hover
+                        color #A72707
+                .pic:hover
+                    transform: scale(1.1)
+                .last
+                    display: flex
+                    flex-direction: column
+                    width: 30%
+                    min-width 280px
+                    margin: 20px auto
+                    .add
+                        background-color #E7DFDDcc
+                        font-size: 80px
+                        width: 100%
+                        text-align: center
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        height 150px
+                    button
+                        border: 1px solid #EFE7E4
+                        outline: none
+                        background-color #EFE7E4
+                        color #514346
+                        padding: 5px 10px
+                        width: 100%
+                        cursor pointer
+                        transition: .3s
+                    button:hover
+                        background-color #514346
+                        color #EFE7E4
+                        transition: .3s

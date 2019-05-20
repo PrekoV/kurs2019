@@ -70,8 +70,10 @@ class Purchases extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
     delete = item => {
-        let _id = item._id
-        API.delete("/adminactions/purchases", _id).then ( res => {
+        let _id = { _id: item._id }
+        console.log(_id)
+        API.delete("/adminactions/purchases/" + item._id, _id).then(res => {
+            console.log(res)
             API.get("purchases/").then(res => {
                 this.setState({ purchases: res.data, edit: false });
             });
@@ -91,7 +93,7 @@ class Purchases extends Component {
                                         <img
                                             src={`http://localhost:8080/${
                                                 item.img
-                                            }`}
+                                                }`}
                                             alt=""
                                         />
                                     </div>
@@ -102,68 +104,68 @@ class Purchases extends Component {
                                         <p>
                                             Size:{" "}
                                             {this.state.edit &&
-                                            this.state._id === item._id ? (
-                                                <div className="input-wrapper">
-                                                    <input
-                                                        type="text"
-                                                        name="size"
-                                                        value={this.state.size}
-                                                        onChange={this.change}
-                                                    />
-                                                </div>
-                                            ) : (
-                                                <span>{item.size}</span>
-                                            )}
+                                                this.state._id === item._id ? (
+                                                    <div className="input-wrapper">
+                                                        <input
+                                                            type="text"
+                                                            name="size"
+                                                            value={this.state.size}
+                                                            onChange={this.change}
+                                                        />
+                                                    </div>
+                                                ) : (
+                                                    <span>{item.size}</span>
+                                                )}
                                         </p>
                                         <p>
                                             Buyer:{" "}
                                             {this.state.edit &&
-                                            this.state._id === item._id ? (
-                                                <div className="input-wrapper">
-                                                    <input
-                                                        type="text"
-                                                        name="name"
-                                                        value={this.state.name}
-                                                        onChange={this.change}
-                                                    />
-                                                </div>
-                                            ) : (
-                                                <span>{item.name}</span>
-                                            )}
+                                                this.state._id === item._id ? (
+                                                    <div className="input-wrapper">
+                                                        <input
+                                                            type="text"
+                                                            name="name"
+                                                            value={this.state.name}
+                                                            onChange={this.change}
+                                                        />
+                                                    </div>
+                                                ) : (
+                                                    <span>{item.name}</span>
+                                                )}
                                         </p>
                                         <p>
                                             Address:
                                             {this.state.edit &&
-                                            this.state._id === item._id ? (
-                                                <div className="input-wrapper">
-                                                    <input
-                                                        type="address"
-                                                        name="address"
-                                                        value={
-                                                            this.state.address
-                                                        }
-                                                        onChange={this.change}
-                                                    />
-                                                </div>
-                                            ) : (
-                                                <span>{item.address}</span>
-                                            )}
+                                                this.state._id === item._id ? (
+                                                    <div className="input-wrapper">
+                                                        <input
+                                                            type="address"
+                                                            name="address"
+                                                            value={
+                                                                this.state.address
+                                                            }
+                                                            onChange={this.change}
+                                                        />
+                                                    </div>
+                                                ) : (
+                                                    <span>{item.address}</span>
+                                                )}
                                         </p>
                                         <p>
                                             Telephone:{" "}
                                             {this.state.edit &&
-                                            this.state._id === item._id ? (
-                                                <div className="input-wrapper">
-                                                    <input
-                                                        type="tel"
-                                                        name="tel"
-                                                        value={this.state.tel}
-                                                        onChange={this.change}
-                                                    />
-                                                </div>
-                                            ) : (
-                                                <span>{item.tel}</span>
-                                            )}
+                                                this.state._id === item._id ? (
+                                                    <div className="input-wrapper">
+                                                        <input
+                                                            type="tel"
+                                                            name="tel"
+                                                            value={this.state.tel}
+                                                            onChange={this.change}
+                                                        />
+                                                    </div>
+                                                ) : (
+                                                    <span>{item.tel}</span>
+                                                )}
                                         </p>
                                         <p>
                                             Price: <span>{item.price}$</span>
@@ -179,7 +181,7 @@ class Purchases extends Component {
                                         >
                                             {this.state.edit ? "Save" : "Edit"}
                                         </button>
-                                        <button onClick={()=>this.delete(item)}>Delete</button>
+                                        <button onClick={() => this.delete(item)}>Delete</button>
                                     </div>
                                 </div>
                             </div>

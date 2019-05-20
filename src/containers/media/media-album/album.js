@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { getOneMedia } from '../../../actions/nonauth/getMedia'
 import { connect } from 'react-redux'
-import queryString from 'query-string'
 import ModalPic from './modalPic';
 
 
@@ -25,6 +24,7 @@ class Album extends Component {
     }
     componentDidMount() {
         // console.log(this.props.location.pathname.split("/")[this.props.location.pathname.split("/").length - 1])
+
         this.props.getOneMedia(this.props.match.params.album)
     }
 

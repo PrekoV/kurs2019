@@ -17,8 +17,10 @@ import Album from "./containers/media/media-album/album";
 import notFound from "./notFound";
 import AuthForm from "./containers/auth/authForm";
 import { registered } from "./actions/auth/auth";
-import { withRouter } from "react-router";
 import Purchases from "./containers/auth/purchases";
+import MediaEdit from "./containers/auth/albumEdit";
+import allAlbum from "./containers/auth/AllAlbum";
+
 
 const mapStateToProps = state => {
     return {
@@ -37,8 +39,8 @@ const mapDispatchToProps = dispatch => {
 const PrivateRoute = ({ component: Component, redirectto: RetirectTo, isAuth, ...rest }) => (
     <Route
         {...rest}
-        render={() =>
-            isAuth ? <Component /> : <Redirect to={RetirectTo} />
+        render={(props) =>
+            isAuth ? <Component {...props} /> : <Redirect to={RetirectTo} />
         }
     />
 );
@@ -54,7 +56,6 @@ class App extends Component {
             <div className="App">
                 <div className="container-wrapper">
                     <Router history={history}>
-                    
                         <Switch>
                             <Route
                                 path="/adminpanel/login"
@@ -64,7 +65,19 @@ class App extends Component {
                                 isAuth={localStorage.getItem("token")}
                                 path="/adminpanel/purchases"
                                 component={Purchases}
-                                redirectto= "/adminpanel/login"
+                                redirectto="/adminpanel/login"
+                            />
+                            <PrivateRoute
+                                isAuth={localStorage.getItem("token")}
+                                path="/adminpanel/media/:album"
+                                component={allAlbum}
+                                redirectto="/adminpanel/login"
+                            />
+                            <PrivateRoute
+                                isAuth={localStorage.getItem("token")}
+                                path="/adminpanel/media"
+                                component={MediaEdit}
+                                redirectto="/adminpanel/login"
                             />
 
                             <Router history={history}>
@@ -104,6 +117,7 @@ class App extends Component {
                                 </div>
                             </Router>
                             <Route component={notFound} />
+
                         </Switch>
                     </Router>
                 </div>

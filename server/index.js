@@ -11,7 +11,7 @@ const MongoClient = require("mongodb").MongoClient;
 const mongoClient = new MongoClient("mongodb://localhost:27017/", { useNewUrlParser: true });
 
 mongoClient.connect(function (err, client) {
-    const db = client.db("kursit");
+    const db = client.db("kurscit");
     let col = db.collection("products");
     if (err) return 0;
     app.locals.products = col;
@@ -19,7 +19,7 @@ mongoClient.connect(function (err, client) {
     app.locals.media = col;
     col = db.collection("tour");
     app.locals.tour = col;
-    col = db.collection("admins");
+    col = db.collection("admin");
     app.locals.admin = col;
     col = db.collection("purchases");
     app.locals.purchases = col;

@@ -14,21 +14,23 @@
             border: 2px dashed  #514346
             margin: 20px 0
             background-color #F3EEED
+            @media screen and (max-width: 1100px)
+                flex-direction: column
             .info
                 display: flex
                 justify-content: space-between
                 width: 70%
-                @media screen and (max-width: 600px)
+                @media screen and (max-width: 1300px)
                     width: 100%
                 .img-wrapper
                     margin: 10px
                     img 
                         width: 240px
                         height 240px
-                        @media screen and (max-width: 1800px)
-                            width: 200px
-                            height 200px
-                        @media screen and (max-width: 600px)
+                        // @media screen and (max-width: 1800px)
+                        //     width: 200px
+                        //     height 200px
+                        @media screen and (max-width: 960px)
                             width: 100px
                             height 100px
                 .details
@@ -43,12 +45,15 @@
                         align-items: center
                         flex-direction: row
                         color: #514346
-                        @media screen and (max-width: 1800px)
-                            font-size: 10px
+                        height 58px
+                        @media screen and (max-width: 960px)
+                            font-size: 14px
+                            height 40px
                         span 
                             color: #514346
                             font-weight bold
-                            @media screen and (max-width: 1800px)
+                            
+                            @media screen and (max-width: 960px)
                                 font-size: 10px
                         .input-wrapper
                             border 1px solid #514346
@@ -61,15 +66,15 @@
                                 padding: 10px
                                 width: 100%
                                 color #514346
-                                @media screen and (max-width: 600px)
+                                @media screen and (max-width: 960px)
                                     padding: 5px
                                     font-size: 7px
-                        @media screen and (max-width: 1800px)
-                            // flex-direction: column
-                            align-items: flex-start
-                            justify-content flex-start
+                        // @media screen and (max-width: 1800px)
+                        //     // flex-direction: column
+                        //     align-items: flex-start
+                        //     justify-content flex-start
             .wrapper-methods
-                @media screen and (max-width: 1800px)
+                @media screen and (max-width: 960px)
                     flex-direction: row
                     align-items: space-around
                 .methods
@@ -78,7 +83,7 @@
                     flex-direction: column
                     margin: 10px
                     height 100%
-                    @media screen and (max-width: 600px)
+                    @media screen and (max-width: 960px)
                         flex-direction: row 
                     button 
                         border: 1px solid #514346

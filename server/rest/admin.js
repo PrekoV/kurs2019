@@ -5,10 +5,11 @@ const bcrypts = require('bcryptjs');
 const config = require('../config')
 
 router.post('/login', function (req, res) {
-    console.log(req.body.login, req.body.password)
+
     let admin = req.app.locals.admin;
     let login = req.body.login;
     let password = req.body.password;
+    console.log(login, password, admin)
     admin.findOne({ login }, (err, r) => {
         console.log(r)
         if (err) return res.status(500).send({ message: "Server Error" })

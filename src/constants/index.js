@@ -1,0 +1,16 @@
+export const POST = 'POST'
+export const GET = 'GET'
+export const GET_MEDIA = 'GET_MEDIA'
+export const GET_ONE_MEDIA = 'GET_ONE_MEDIA'
+export const GET_PRODUCTS = 'GET_PRODUCTS'
+export const GET_PRODUCT = 'GET_PRODUCT'
+export const GET_TOURS = 'GET_TOURS'
+export const GET_NEWS = 'GET_NEWS'
+export const AUTH_SUCCESS = "AUTH_SUCCESS"
+export const AUTH_FAILED = "AUTH_FAILED"
+export const LOGOUT = "LOGOUT"
+export const POST_MESSAGE = "POST_MESSAGE"
+export const UPDATE_MEDIA = "UPDATE_MEDIA"
+export const CREATE_MEDIA = "CREATE_MEDIA"
+export const BUY_PRODUCT_SUCCESS = "BUY_PRODUCT_SUCCESS"
+export const BUY_PRODUCT_FAILED = "BUY_PRODUCT_FAILED"

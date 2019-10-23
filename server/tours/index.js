@@ -3,7 +3,8 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
     let tour = req.app.locals.tour;
-    tour.find({}).toArray((err, r) => {
+    console.log("im here")
+    tour.findOne({}, (err, r) => {
         res.send(r)
     })
 })

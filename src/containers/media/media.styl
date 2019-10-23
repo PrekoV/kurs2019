@@ -1,0 +1,109 @@
+.Media
+    background-image url("./style/wallpaper.jpg")
+    background-repeat repeat
+    // background-position 49% 0%
+    // background-size cover
+    background-attachment fixed
+    min-height: 100vh
+    // min-width: 100vw
+    .bg-wrapper
+        height 100%
+        background-color #000000cc
+        min-height: 100vh
+        .content-wrapper
+            width: 90%
+            margin: 0 auto
+            padding: 100px 0 0 0
+            margin-bottom: 20px
+            .alboum
+                padding: 10px 0
+                .name-wrapper
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    padding: 10px 10px
+                    .name 
+                        font-size: 35px
+                        text-transform uppercase
+                        color #E7DFDD
+                        text-align center
+                        @media screen and (max-width: 500px)
+                            font-size: 20px
+                    .short-line
+                        margin: 0
+                        width: 20%
+                        display: block
+                        min-width: 20px
+                .pics-wrapper
+                    display: flex
+                    justify-content: space-around
+                    align-items: center
+                    flex-wrap: wrap
+                    width 100%
+                    height 100%
+                    .pic
+                        max-width: 300px
+                        min-width 300px
+                        margin: 20px
+                        height 230px
+                        transition: .3s
+                        // position relative
+                        width: 23%
+                        border 2px solid #E7DFDD
+                        overflow hidden
+                        box-shadow 0 0 20px #000
+                        cursor pointer
+                        img 
+                            height 230px
+                            transition: .3s
+                            margin-left: -10px
+                            // position: absolute
+                    .pic:hover
+                        transform: scale(1.4)
+                        transition: .3s
+                        //width 350px
+                        // height 400px
+                        @media screen and (max-width: 600px)
+                            transform: scale(1.2)
+                        @media screen and (max-width: 400px)
+                            transform: none
+                        img 
+                            height 100%
+                            //width: 100%
+                            transition: .3s
+                            @media screen and (max-width: 400px)
+                                height 230px
+                .line
+                    margin: 30px 0 0 0 
+                .show-more
+                    display: flex
+                    justify-content: space-around
+                    align-items: center
+                    text-align: center
+                    margin: 15px 0 0 0
+                    width: 100%
+                    button 
+                        width: 200px
+                        padding: 10px
+                        border: none 
+                        outline: none
+                        background-color #E7DFDDcc
+                        height 40px
+                        transition: .3s
+                        cursor pointer
+                        a
+                            text-align: center
+                            color: #514346
+                            transition: .3s
+                            font-size: 18px
+                            text-transform uppercase
+                    button:hover
+                        background-color #514346cc
+                        padding: 0
+                        transition: .3s
+                        border 1px solid #E7DFDD
+                        a
+                            color: #E7DFDD
+                            font-size: 19px
+                            transition: .3s
+                            border: none
